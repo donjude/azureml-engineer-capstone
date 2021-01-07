@@ -25,7 +25,7 @@ The best model was chosen and deployed as a webservice REST API using Azure cont
 ### Overview
 *TODO*: Explain about the data you are using and where you got it from.
 
-The dataset [Heart failure clinical records](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records#), used in the development of the machine learning models, comes from the **University of California, Irvin (UCI)** [Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records#).
+The dataset [Heart failure clinical records](https://archive.ics.uci.edu/ml/machine-learning-databases/00519/heart_failure_clinical_records_dataset.csv), used in the development of the machine learning models, comes from the **University of California, Irvin (UCI)** [Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records#).
 
 The dataset contains 299 observations and 12 clinical features with one binary target variable `death event`. This data was collected from patients who had heart failures, during their clinical follow-up period.
 
