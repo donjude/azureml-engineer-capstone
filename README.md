@@ -33,11 +33,11 @@ The same dataset can also be found on the [Kaggle site](https://www.kaggle.com/a
 > Cardiovascular diseases (CVDs) are the number 1 cause of death globally, taking an estimated 17.9 million lives each year, which accounts for 31% of all deaths worlwide.
 Heart failure is a common event caused by CVDs and this dataset contains 12 features that can be used to predict mortality by heart failure.
 
-Below is a description of the dataset of the dataset:
+Below is a description of the dataset:
 
 ### Attribute Information
 
-Thirteen (13) clinical features:
+Thirteen (12) clinical features:
 
 - age: age of the patient (years)
 - anaemia: decrease of red blood cells or hemoglobin (boolean)
@@ -51,6 +51,9 @@ Thirteen (13) clinical features:
 - serum sodium: level of serum sodium in the blood (mEq/L)
 - smoking: if the patient smokes or not (boolean)
 - time: follow-up period (days)
+
+Target variable:
+
 - [target] death event: if the patient deceased during the follow-up period (boolean)
 
 ### Task
