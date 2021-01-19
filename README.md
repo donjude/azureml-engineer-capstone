@@ -1,14 +1,14 @@
 *NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
-# Predicting Mortality Caused by Heart Failure
+# Predicting the Probability of Mortality Caused by Heart Failure
 
 *TODO:* Write a short introduction to your project.
 
 This project is the final capstone project as part of Microsoft's sponsored Udacity Nanodegree programme [Machine Learning Engineer for Microsoft Azure](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333).
 
-In this project I developed an Automated Machine Learning Model and a manual machine learning model, optimized by Hyperparameter optimization tool Hyperdrive with Microsoft's cloud machine learning platform, Azure Machine Learning. I compared the AutoML model to the model optimized by Hyperdrive to determine which of the two models performed well by comparing their metrics.
+In this project I used an external dataset outside the Microsoft Azure environment to develop two Machine Learning models using `Azure AutoML` and `Logistic Regression model + Hyper Drive`.
 
-The best model was chosen and deployed as a webservice REST API using Azure container instance. The REST API endpoint is then consumed using Python HTTP request calls to produce scoring results.
+Hyper Drive is a model optimization tool which was used to optimized the logistic regression model. The `AutoML` model and the `Logistic Regression + Hyper Drive` models were compared and the best performing model was chosen and deployed as a webservice REST API using Azure Container Instance (ACI). The REST API endpoint is then consumed using a Python HTTP request calls to produce scoring results.
 
 ## Project Workflow diagram
 
@@ -19,6 +19,13 @@ The best model was chosen and deployed as a webservice REST API using Azure cont
 ## Project Set Up and Installation
 
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
+
+This section describe how the project can be setup to run on Azure Machine Learning service in the cloud.
+
+1. Azure Subscription
+In order to use or create an instance of Azure ML Workspace, you need to have an azure subscription which would provide you access to Microsoft Azure resources. You can [create a new subscription](https://azure.microsoft.com/en-us/free/) or access an existing suscription if you have.
+
+2. Azure ML SDK and other library installation
 
 ## Dataset
 
