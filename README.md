@@ -8,13 +8,17 @@ This project is the final capstone project as part of Microsoft's sponsored Udac
 
 In this project I used an external dataset outside the Microsoft Azure environment to develop two Machine Learning models using `Azure AutoML` and `Logistic Regression model + Hyper Drive`.
 
-Hyper Drive is a model optimization tool which was used to optimized the logistic regression model. The `AutoML` model and the `Logistic Regression + Hyper Drive` models were compared and the best performing model was chosen and deployed as a webservice REST API using Azure Container Instance (ACI). The REST API endpoint is then consumed using a Python HTTP request calls to produce scoring results.
+>**Hyperdrive** is a Microsoft package that automate the process of choosing hyperparameters to optimize your machine learning model.
+
+The `AutoML` model and the `Logistic Regression + Hyper Drive` models were compared and the best performing model was chosen and deployed as a webservice REST API using Azure Container Instance (ACI). The REST API endpoint is then consumed using a Python HTTP request calls to produce scoring results.
 
 ## Project Workflow diagram
 
 ![workflow diagram](images/capstone-diagram.png)
 
 *TODO: State which model performed better, giving the model name and the metrics for comparison
+The `Azure Auto ML` run produced the best model with a model accuracy of `83.3` as compared to the `Logistic Regression + Hyper Drive` with a model accuracy of `79.4`.
+
 
 ## Project Set Up and Installation
 
