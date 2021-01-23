@@ -105,7 +105,10 @@ In this project I seek to predict the mortality (death event) caused by Heart fa
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.
 
-To access the dataset from my Azure Machine Learning workspace, I first downloaded the dataset from the UCI repository and registered the dataset in my Azure ML workspace.
+* For Azure AutoML run the dataset is read using `Dataset.Tabular.from_delimeted_files()` from the **UCI** repository URL and registered as an Azure tabular dataset in the workspace. The registered tabular dataset is then accessed by the Azure AutoML configuration settings for the run.
+
+* For Logistic Regression + Hyperdrive run the dataset is accessed directly from the URL in the `train.py` script using `TabularDataFactory.from_delimited_files()`
+
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
