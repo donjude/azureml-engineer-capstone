@@ -42,6 +42,25 @@ This section describe how the project can be setup to run on Azure Machine Learn
     print("You are currently using verion", azureml.core.VERSION, "of the Azure ML SDK")
     ```
 
+    if the version is different you can run the below to upgrade to the latest version 1.20.0
+
+    ```python
+    !pip install --upgrade azureml-sdk[automl]
+    ```
+
+3. **Set up your notebook environment**
+    - You need to create an Azure Machine Learning workspace, a compute instance and how to set up your notebook in Azure ML. Details can be found in the link below: [create a workspace and compute instance](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-1st-experiment-sdk-setup)
+
+    - open the notebook terminal and run the git scrit below to import notebook and script for this experiment.
+
+    ```bash
+    git clone https://github.com/donjude/azureml-engineer-capstone.git
+    ```
+
+    - in the folder `azureml-engineer-capstone` you can run the scripts below in orderly manner.
+        - **automl.ipynb** - for automl run
+        - **hyperparameter_tuning.ipynb + train.py** - for Logistic regression + hyperdrive run
+
 ## Dataset
 
 ### Overview
