@@ -112,6 +112,48 @@ In this project I seek to predict the mortality (death event) caused by Heart fa
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+**Auto ML Settings and Configuration**
+
+Below is the automl settings and the configurations set for the experiment.
+
+| Configuration  | Value        | Description     |
+| :------------- | :----------: | -----------: |
+|  n_cross_validation | 5   | Number of K-fold cross validation to perform    |
+| experiment_timeout_minutes   | 60 | This specifies how long the experiment should run in minutes |
+| max_concurrent_iterations   | 2 | Maximum nmber of iterations that would be executed concurrently on the compute cluster |
+| primary_metric   | accuracy | The metric that Auto ML will optimize for model selection |
+| compute_target   | training_cluster | The Azure compute cluster used to run the experiment. |
+| task   | classification | The type of task to run |
+| training_data   | dataset | The training data used in the experiment. It contains both features and the label column to predict |
+| label_column_name   | DEATH_EVENT | The target variable to predict |
+| path   | project_folder | The full path to the Azure ML project folder |
+| enable_early_stopping   | True | Enabled to terminate if the score is not improving in a short term |
+| featurization   | auto | feature engineering, transformation, scalling and normalization set to be done automatically by Azure Auto ML |
+| debug_log   | automl_errors.log | The log file to write deburg information to |
+
+
+
+```python
+# define automl settings
+automl_settings = {
+    "n_cross_validations": 5,
+    "experiment_timeout_minutes": 60,
+    "max_concurrent_iterations": 2,
+    "primary_metric" : 'accuracy'
+}
+
+# define automl configuration settings
+automl_config = AutoMLConfig(compute_target=training_cluster,
+                             task = "classification",
+                             training_data=dataset,
+                             label_column_name="DEATH_EVENT",   
+                             path = project_folder,
+                             enable_early_stopping= True,
+                             featurization= 'auto',
+                             debug_log = "automl_errors.log",
+                             **automl_settings
+                            )
+```
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
