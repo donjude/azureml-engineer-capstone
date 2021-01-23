@@ -26,10 +26,21 @@ The `Azure Auto ML` run produced the best model with a model accuracy of `83.3` 
 
 This section describe how the project can be setup to run on Azure Machine Learning service in the cloud.
 
-1. Azure Subscription
-In order to use or create an instance of Azure ML Workspace, you need to have an azure subscription which would provide you access to Microsoft Azure resources. You can [create a new subscription](https://azure.microsoft.com/en-us/free/) or access an existing suscription if you have.
+1. **Azure Subscription**
 
-2. Azure ML SDK and other library installation
+    In order to reproduce this experiment, you need to create an Azure ML Workspace. To create an Azure ML Workspace you need to [create a new Azure subscription](https://azure.microsoft.com/en-us/free/) or access an existing suscription if you have.
+
+2. **Azure ML SDK and other library installation**
+
+    Azure ML Workspace provides Azure Notebooks and a Managed environment where the required SDK is already installed for this experiment.
+
+    you can run the code below in the azure ml notebook to make sure the SDK version corresponds to what I used in this experiment.
+
+    ```python
+    import azure.core
+    print("This notebook was created using version 1.20.0 of the Azure ML SDK")
+    print("You are currently using verion", azureml.core.VERSION, "of the Azure ML SDK")
+    ```
 
 ## Dataset
 
