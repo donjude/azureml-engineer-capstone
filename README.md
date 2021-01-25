@@ -116,7 +116,7 @@ In this project I seek to predict the mortality (death event) caused by Heart fa
 
 Below is the automl settings and the configurations set for the experiment.
 
-| Configuration  | Value        | Description     |
+| Property  | Value        | Description     |
 | :------------- | :----------: | -----------: |
 |  n_cross_validation | 5   | Number of K-fold cross validation to perform    |
 | experiment_timeout_minutes   | 60 | This specifies how long the experiment should run in minutes |
@@ -130,8 +130,6 @@ Below is the automl settings and the configurations set for the experiment.
 | enable_early_stopping   | True | Enabled to terminate if the score is not improving in a short term |
 | featurization   | auto | feature engineering, transformation, scalling and normalization set to be done automatically by Azure Auto ML |
 | debug_log   | automl_errors.log | The log file to write deburg information to |
-
-
 
 ```python
 # define automl settings
@@ -157,8 +155,21 @@ automl_config = AutoMLConfig(compute_target=training_cluster,
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
+The best model produced by the Automated ML run is `VotingEnsemble` with an accuracy metric of `87.29%`.
+
+*TODO parameters:
+
+The following would be done to improve the AutoML run.
+
+1. Increase the number of cross validation to improve model accuracy.
+2. experiment time out would not be specified so the Auto ML run can produce the best model at its own stipulated time.
+
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+
+The screen shot below shows the experiment RunDetails widget of the various models which were created during the automl run. The best model for the experiment `VotingEnsemble` can be seen at the top of the list.
+![run_details1](images/run_details1.png)
+![run_details2](images/run_details2.png)
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
