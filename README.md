@@ -174,6 +174,8 @@ The screen shot below shows the experiment RunDetails widget of the various mode
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
+Most of the algorithms used in the AutoML run of the experiment were Tree based algorithms. I chosed Logistic Regression for this experiment because, it is an algorthm that works perfectly on binary classification tasks. It is easier to implement, interpret, and very efficient to train. Techniques to avoid overfitting such as choosing regularization value and also allow model convergence to maximize accuracy are hyperparameter values that may be intimidating to come by. Using Hyperdrive with logistic regression would be easier to search for the best hyperparameters for the model.
+
 
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
