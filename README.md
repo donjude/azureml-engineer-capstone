@@ -1,8 +1,4 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
-
 # Predicting the Probability of Mortality Caused by Heart Failure
-
-*TODO:* Write a short introduction to your project.
 
 This project is the final capstone project as part of Microsoft's sponsored Udacity Nanodegree programme [Machine Learning Engineer for Microsoft Azure](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333).
 
@@ -228,7 +224,24 @@ The screenshots below shows the RunDetails widget of the hyperdrive run and the 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
-The best model `VotingEnsemble` which was an AutoML model was deployed in this project, since it produced the best performance metric with an accuracy of 90.3%.
+The best model `VotingEnsemble` which was an AutoML model was deployed in this project, since it produced the best accuracy of 90.3% as compared to the hyperdrive run. Below is how the model was deployed:
+
+1. The best model `model.pkl` file from the AutoML run was first retrieved together with its conda environment script `conda_env.yml` and scoring script `score.py`.
+1. The model was then registered as a model in the Azure ML workspace.
+1. An inference configuration was created from the downloaded `conda_env.yml` and `score.py` to make sure that the software dependencies and resources needed for deployment is intact.
+1. The model was then deployed with the inference configuration as an Azure Container Instance (ACI) webservice.
+
+### Model endpoint
+
+The screenshot below shows the healthy status of the deployed model endpoint which indicates the model deployed is active.
+
+![endpoint](images/deployed_endpoint.png)
+
+### Consume deployed model
+
+1. To consume the deployed model the http endpoint url was embeded into a python code with sample data observations loaded into a json payloader.
+1. HTTP webservice POST request is then sent to the enpoint url and the response from the url is captured as a json data.
+1. Any application or service is capable of consuming the model using the enpoint url by making http request calls to the webservice.
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
@@ -236,6 +249,10 @@ The best model `VotingEnsemble` which was an AutoML model was deployed in this p
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
 
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
   
+## References
+https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml
+
+https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
+
+https://www.geeksforgeeks.org/advantages-and-disadvantages-of-logistic-regression/
