@@ -113,7 +113,7 @@ In this project I seek to predict the mortality (death event) caused by Heart fa
 Below is the automl settings and the configurations set for the experiment.
 
 | Property  | Value        | Description     |
-| :------------- | :----------: | -----------: |
+| :------------- | :---------- | :----------- |
 |  n_cross_validation | 5   | Number of K-fold cross validation to perform    |
 | experiment_timeout_minutes   | 60 | This specifies how long the experiment should run in minutes |
 | max_concurrent_iterations   | 2 | Maximum nmber of iterations that would be executed concurrently on the compute cluster |
