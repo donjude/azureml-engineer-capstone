@@ -61,3 +61,14 @@
 2021-01-23 10:59:28.000 - INFO - 18172 - azureml.automl.runtime.featurization.data_transformer.__init__:185 - Feature sweeping timeout: 86400
 2021-01-23 10:59:28.044 - INFO - 18172 - azureml.train.automl._model_download_utilities._log_activity:92 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=624.73[ms]
 2021-01-23 10:59:28.044 - INFO - 18172 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=868.36[ms]
+2021-01-28 13:57:32.603 - INFO - 17922 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetOutput
+2021-01-28 13:57:32.732 - INFO - 17922 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetOutput
+2021-01-28 13:57:32.741 - INFO - 17922 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetChildren
+2021-01-28 13:57:32.880 - INFO - 17922 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=138.99[ms]
+2021-01-28 13:57:32.880 - INFO - 17922 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=148.19[ms]
+2021-01-28 13:57:32.892 - INFO - 17922 - azureml.train.automl._model_download_utilities._log_activity:54 - ActivityStarted: DownloadModel
+2021-01-28 13:58:01.801 - INFO - 17922 - azureml.automl.runtime.distributed.utilities.horovod_initialized:58 - Horovod not found in current environment. Distribution via Horovod will be disabled.
+2021-01-28 13:58:09.100 - INFO - 17922 - azureml.automl.runtime.featurization.data_transformer.__init__:184 - Feature sweeping enabled: False
+2021-01-28 13:58:09.101 - INFO - 17922 - azureml.automl.runtime.featurization.data_transformer.__init__:185 - Feature sweeping timeout: 86400
+2021-01-28 13:58:12.536 - INFO - 17922 - azureml.train.automl._model_download_utilities._log_activity:92 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=39644.17[ms]
+2021-01-28 13:58:12.536 - INFO - 17922 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=39933.67[ms]
