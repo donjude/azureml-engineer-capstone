@@ -172,18 +172,63 @@ The screen shot below shows the experiment RunDetails widget of the various mode
 ![run_details2](images/run_details2.png)
 
 ## Hyperparameter Tuning
+
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
-Most of the algorithms used in the AutoML run of the experiment were Tree based algorithms. I chosed Logistic Regression for this experiment because, it is an algorthm that works perfectly on binary classification tasks. It is easier to implement, interpret, and very efficient to train. Techniques to avoid overfitting such as choosing regularization value and also allow model convergence to maximize accuracy are hyperparameter values that may be intimidating to come by. Using Hyperdrive with logistic regression would be easier to search for the best hyperparameters for the model.
+Most of the algorithms used in the AutoML run of the experiment were Tree based algorithms. I chosed Logistic Regression from Scikit-Learn library for this experiment because, it is an algorthm that works perfectly on binary classification tasks. It is easier to implement, interpret, and very efficient to train.
 
+The parameter sampling I used in this experiment was Random Parameter sampling. Random Parameter sampling selects hyperparameter values randomly from a defined search spaced. The defined search space can be continuous or discrete values. In this experiment I optimized two most important hyperparameter values of logistic regression by defining two hyperparameters search space as it can be seen in the python code below.
+
+```python
+param_sampling = RandomParameterSampling({
+    '--C': uniform(0.001, 1.0),
+    '--max_iter': choice(0, 10, 50, 100, 150, 200)
+})
+```
+
+> `--C` with a **uniform range from (0.01, 1.0)** is the Inverse Regularization strength which helps to reduce overfitting. The smaller values causes stronger regularization.
+>
+> `--max_iter` with a choice of discrete values (0, 10, 50, 100, 150, 200) is the maximum number of iterations to converge. This convergence maximizes the model accuracy.
+
+One most important configuration which also went into the Hyperdrive configuration settings was defining a **BanditPolicy** which terminates poorly performing runs with an early termination policy. This improves computational efficiency. Below is the settings which was used:
+
+```python
+early_termination_policy = BanditPolicy(evaluation_interval=3, slack_factor=0.1, delay_evaluation=3)
+```
+
+> `evaluation_interval` - the frequency of applying the policy. An evaluation interval of 3 will apply the policy each time the training script reports the primary metric.
+>
+> `slack_factor` - the slack allowed with respect to the best performing training run. Supposed the best performing run at interval 3 with a reported primary metric of 0.85 with a goal to maximize the primary metric. If the policy specifies a slack_factor of 0.1, any training runs whose best metric at interval 3 is less than 0.77 (0.85(1+`slack_factor`)) will be terminated.
+>
+> `delay_evaluation` - delays the first policy evaluation for a specified number of intervals.
 
 ### Results
+
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
+The best model from the `Hyperdrive + Logistic Regression` run produced an accuracy of 87.32%.
+
+### Model Improvement
+To improve the model:
+
+- Grip sampling would be used in inplace of Random sampling and specify Early termination to infer knowledge from previous poorly performing runs. Grid sampling may provide a little bit of performance as it searches over all possible values.
+
+- Bayesian sampling would also be leverage as it uses trials from previous runs as a prior knowledge to pick new samples and to improve the primary metric.
+
+- Increasing the `max_total_runs` value can also provide quiet significant performance.
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
+The screenshots below shows the RunDetails widget of the hyperdrive run and the best model trained with its parameters.
+
+![hyperdrive1](images/hyper_run_details1.png)
+![hyperdrive2](images/hyper_run_details2.png)
+![hyperdrive3](images/hyper_run_details3.png)
+
+
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+
+The best model `VotingEnsemble` which was an AutoML model was deployed in this project, since it produced the best performance metric with an accuracy of 90.3%.
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
@@ -193,3 +238,4 @@ Most of the algorithms used in the AutoML run of the experiment were Tree based 
 
 ## Standout Suggestions
 *TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+  
