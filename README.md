@@ -210,7 +210,7 @@ The screenshots below shows the RunDetails widget of the hyperdrive run and the 
 
 ## Model Deployment
 
-The best model `VotingEnsemble` which was an AutoML model was deployed in this project, since it produced the best accuracy of 90.3% as compared to the hyperdrive run. Below is how the model was deployed:
+The best model `VotingEnsemble` which was an AutoML model was deployed in this project, since it produced the best accuracy of `0.8763` as compared to the hyperdrive run with an accuracy of `0.8133`. Below is how the model was deployed:
 
 1. The best model `model.pkl` file from the `Auto ML` run was first retrieved together with its conda environment script `conda_env.yml` and scoring script `score.py`.
 1. The model was then registered as a model in the Azure ML workspace.
